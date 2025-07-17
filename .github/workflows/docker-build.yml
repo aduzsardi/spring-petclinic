@@ -1,14 +1,13 @@
 name: Docker Build and Release
-run-name: ${{ github.actor }} build container image #-> release_core_lib.yml @ ${{ github.event.pull_request.title }} ⚙️
 
 on:
   workflow_run:
-    workflows: [Java CI with Maven]
+    workflows: ["Java CI with Maven"]
     types: 
       - completed
       - requested
-    branches:
-        - test
+    # branches:
+    #     - test
 
 jobs:
   release:
