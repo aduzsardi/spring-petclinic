@@ -2,11 +2,11 @@ name: Deploy and Test Cluster
 
 on:
   push:
-    branches: [main]
+    branches: [test]
     paths:
       - 'k8s/**'
   pull_request:
-    branches: [main]
+    branches: [test]
     paths:
       - 'k8s/**'
 
