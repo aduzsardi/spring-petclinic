@@ -4,8 +4,9 @@ run-name: ${{ github.actor }} build container image #-> release_core_lib.yml @ $
 on:
   workflow_run:
     workflows: [Java CI with Maven]
-    types:
+    types: 
       - completed
+      - requested
     branches:
         - test
 
