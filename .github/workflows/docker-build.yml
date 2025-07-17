@@ -6,6 +6,8 @@ on:
     workflows: [Java CI with Maven]
     types:
       - completed
+    branches:
+        - test
 
 jobs:
   release:
