@@ -12,12 +12,16 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-    #   - uses: actions/download-artifact@v4
-    #     with:
-    #       name: jar
-      # - name: List files
-      #   run: ls -lAR
-      - name: Get Variables
-        run: echo ${{ vars.MY_VARIABLE }}
+      - name: Get Run ID
+        run: echo ${{ vars.RUN_ID }}
+      - name: Get artifact id
+        run: echo ${{ vars.ARTIFACT_ID }}
+      - uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ vars.RUN_ID }}
+          name: jar
+      - name: List files
+        run: ls -lAR
+
 
 
