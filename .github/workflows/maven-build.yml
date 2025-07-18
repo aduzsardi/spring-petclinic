@@ -14,22 +14,28 @@ jobs:
     steps:
       - name: List env variables
         run: printenv
-      # - uses: actions/checkout@v4
-      # - name: Set up JDK
-      #   uses: actions/setup-java@v4
-      #   with:
-      #     java-version: 17
-      #     distribution: 'adopt'
-      #     cache: maven
-      # - name: Build with Maven Wrapper
-      #   run: ./mvnw -B verify -DskipTests=true
-      # - name: Upload math result for job 1
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: jar
-      #     path: target/*.jar
+      - uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: 'adopt'
+          cache: maven
+      - name: Build with Maven Wrapper
+        run: ./mvnw -B verify -DskipTests=true
+      - name: Upload math result for job 1
+        id: jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: jar
+          path: target/*.jar
       - uses: action-pack/set-variable@v1
         with:
-          name: 'MY_VARIABLE'
-          value: 'My var'
+          name: 'RUN_ID'
+          value: ${{ github.run_id }}
+          token: ${{ secrets.MY_VARS_TOKEN }}
+      - uses: action-pack/set-variable@v1
+        with:
+          name: 'ARTIFACT_ID'
+          value: ${{ steps.jar.outputs.artifact-id }} 
           token: ${{ secrets.MY_VARS_TOKEN }}
