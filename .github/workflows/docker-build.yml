@@ -11,8 +11,11 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4.2.2
+    steps:      
+      - uses: actions/download-artifact@v3
+        with:
+          name: jar
       - name: List files
-        run: env
+        run: ls -lAR
+
 
