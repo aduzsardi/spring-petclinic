@@ -20,6 +20,7 @@ jobs:
         with:
           run-id: ${{ vars.RUN_ID }}
           name: jar
+          github-token: ${{ secrets.MY_VARS_TOKEN }}
       - name: List files
         run: ls -lAR
 
