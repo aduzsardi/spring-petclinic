@@ -32,4 +32,4 @@ jobs:
         with:
           name: 'MY_VARIABLE'
           value: 'Lorem ipsun dolor simit'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.MY_VARS_TOKEN }}
