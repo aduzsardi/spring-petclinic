@@ -31,5 +31,5 @@ jobs:
       - uses: action-pack/set-variable@v1
         with:
           name: 'MY_VARIABLE'
-          value: 'Lorem ipsun dolor simit'
+          value: 'My var'
           token: ${{ secrets.MY_VARS_TOKEN }}
